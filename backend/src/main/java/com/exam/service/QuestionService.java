@@ -1,5 +1,6 @@
 package com.exam.service;
 
+import com.exam.model.McqQuestion;
 import com.exam.model.Question;
 import com.exam.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,10 @@ public class QuestionService {
 
     public Question createQuestion(Question question) {
         return questionRepository.save(question);
+    }
+
+    public McqQuestion createMcqQuestion(McqQuestion mcqQuestion) {
+        return (McqQuestion) questionRepository.save(mcqQuestion);
     }
 
     public Question updateQuestion(Long id, Question updated) {

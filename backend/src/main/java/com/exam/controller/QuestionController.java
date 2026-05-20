@@ -1,5 +1,6 @@
 package com.exam.controller;
 
+import com.exam.model.McqQuestion;
 import com.exam.model.Question;
 import com.exam.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,12 @@ public class QuestionController {
     @PostMapping
     public Question createQuestion(@RequestBody Question question) {
         return questionService.createQuestion(question);
+    }
+
+    // Dedicated endpoint for MCQ questions (includes explanation field)
+    @PostMapping("/mcq")
+    public McqQuestion createMcqQuestion(@RequestBody McqQuestion mcqQuestion) {
+        return questionService.createMcqQuestion(mcqQuestion);
     }
 
     @PutMapping("/{id}")
